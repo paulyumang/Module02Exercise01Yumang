@@ -4,28 +4,39 @@
              x:Class="Module02Exercise01.View.EmployeePage"
              Title="EmployeePage">
 
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="10">
 
         <!--Label to bound to FullName property-->
         <Label 
             Text="{Binding FullName}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
-            FontSize="15"
+            FontSize="40"
             FontAttributes="Bold"
             Padding="30"
         />
 
         <Button
-        Text="Show Managers"
-        Command="{Binding LoadEmployeeDataCommand}"
+            Text="Show Managers"
+            Command="{Binding LoadEmployeeDataCommand}"
         />
 
         <ListView ItemsSource="{Binding Employees}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding FullNames}" 
-                  Detail="{Binding Position}"/>
+                    <ViewCell>
+                        <StackLayout Padding="10" Orientation="Vertical">
+                            <Label Text="{Binding FullNames}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   Margin="0,0,0,5" 
+                                   TextColor="White"/>
+                            <!-- Adjust margin as needed -->
+                            <Label Text="{Binding Position}"
+                                   FontSize="14"
+                                   TextColor="Gray" />
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
